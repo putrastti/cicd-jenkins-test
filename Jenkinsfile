@@ -12,7 +12,7 @@ pipeline {
 
         stage ('Deploy'){
             steps {
-                withCredentials([[$class    : 'UsernamePasswordMultibinding',
+                withCredentials([[$class    : 'UsernamePasswordMultiBinding',
                       credentialsId         : 'PCF_LOGIN',
                       usernameVariable      : 'USERNAME',
                       passwordVariable      : 'PASSWORD']]){
