@@ -6,8 +6,8 @@ pipeline {
         stage ('Build') {
             steps {
                 withMaven(maven: 'maven_3_5_0') {
-                    sh 'mvn clean package'
-                    sh 'mvn clean install -s mvn-settings.xml'
+                    bat 'mvn clean package'
+                    bat 'mvn clean install -s mvn-settings.xml'
                 }
             }
         }
@@ -19,8 +19,8 @@ pipeline {
                                   usernameVariable: 'USERNAME',
                                   passwordVariable: 'PASSWORD']]) {
 
-                    sh '/usr/local/bin/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD'
-                    sh '/usr/local/bin/cf push'
+                    bat '/usr/local/bin/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD'
+                    bat '/usr/local/bin/cf push'
                 }
             }
 
